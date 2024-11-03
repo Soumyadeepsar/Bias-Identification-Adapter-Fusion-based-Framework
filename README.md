@@ -1,6 +1,7 @@
 # Bias-Aware AdapterFusion (BAAF) Framework 
 The code and dataset for ECIR 2025 paper single-task training code are shared AdapterFusion cross-validation code shared.<br/>
 ![adapter_fusion](https://github.com/user-attachments/assets/f0ce6df2-46c3-4181-87cc-e8671aa5e8ae)
+![fusion](https://github.com/user-attachments/assets/f452609a-ffd6-4b98-b9be-3d68417f8492)
 
 # Automatic Behaviour Optimization (ABO)
 Automatic Behaviour Optimization aims to optimize model's behaviour instead of optimizing the prompts directly. ABO follows the following steps to achieve the Optimized prompt: <br/>
