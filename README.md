@@ -1,4 +1,2 @@
-# Bias-Identification-Adapter-Fusion-based-Framework
-Code and dataset for ECIR 2025 paper
-single-task training code is shared
-adapter-fusion cross validation code shared
+# Bias-Aware AdapterFusion Framework
+The code and dataset for ECIR 2025 paper single-task training code are shared AdapterFusion cross-validation code shared.
