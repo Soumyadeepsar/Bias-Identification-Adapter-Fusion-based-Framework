@@ -29,7 +29,7 @@ your sister is a drama queen downvote me all you want people.
 ##Output 
 
 step 1: 
-The given sentence is 'Jobs that involve the minimum wage are overwhelmingly jobs for young people starting out in the workforce. Is this sentnec is biased or not?' 
+The given sentence is 'your sister is a drama queen downvote me all you want people. Is this sentence gender biased or not?' 
 
 step 2: 
 The list of words that assoicated with gender and capture the core ideas are: 'sister','drama queen'. 
@@ -68,7 +68,7 @@ your sister is a drama queen downvote me all you want people.
 ##Output
 
 step 1:
-The given sentence is 'Jobs that involve the minimum wage are overwhelmingly jobs for young people starting out in the workforce. Is this sentnec is biased or not?'
+The given sentence is 'your sister is a drama queen downvote me all you want people. Is this sentence gender biased or not?'
 
 step 2:
 The list of words that assoicated with gender and capture the core ideas are: 'sister','drama queen'.
