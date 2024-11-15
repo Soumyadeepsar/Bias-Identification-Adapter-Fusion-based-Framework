@@ -2,6 +2,8 @@
 The code and dataset for ECIR 2025 paper single-task training code are shared AdapterFusion cross-validation code shared.<br/>
 ![fusion](https://github.com/user-attachments/assets/8aa524da-ea31-4c19-98a2-6c399521f7c9)
 
+# Single-Task Adapters:
+These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be 10e-4. So we use a learning rate = 1.2*10e-4 .
 # Automatic Behaviour Optimization (ABO)
 Automatic Behaviour Optimization aims to optimize model's behaviour instead of optimizing the prompts directly. ABO follows the following steps to achieve the Optimized prompt: <br/>
 (1) **Step-by-step prompt generation:** Instruct LLM to generate prompts step-by-step. <br/>
