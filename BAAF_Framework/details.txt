@@ -1,1 +1,6 @@
+Training Details:
+
+Training setup used for Single-task adapters :
+
+Training setup used for AdapterFusion:
 
