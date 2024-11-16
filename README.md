@@ -3,12 +3,13 @@ The Entire training setup and ICL techniques used in our paper is discussed here
 ![fusion](https://github.com/user-attachments/assets/8aa524da-ea31-4c19-98a2-6c399521f7c9)
 
 ## Training details of Single-Task Adapters (STA):
-These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be *1e-4*. So we use a ***learning rate = 1.2e-4*** . We used a total 6 epochs for the training process. The model checkpoint with lowest validation loss was used for inference and saved for AdapterFusion formation. Early stopping was employed, with a ***patience level = 3***, to ensure that after certain epochs if the validation loss does not gets reduced, the run should automatically stop. This helps to prevent further use of valuable resources. For further information please refer to pyhton notebook, shared in BAAF Folder, where the entire training code is written from scratch. 
+These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be *1e-4* in the following paper:[[https://doi.org/10.1000/example](https://arxiv.org/pdf/2311.11077)]([https://doi.org/10.1000/example](https://arxiv.org/pdf/2311.11077)). So we use a ***learning rate = 1.2e-4*** . We used a total 6 epochs for the training process. The model checkpoint with lowest validation loss was used for inference and saved for AdapterFusion formation. Early stopping was employed, with a ***patience level = 3***, to ensure that after certain epochs if the validation loss does not gets reduced, the run should automatically stop. This helps to prevent further use of valuable resources. For further information please refer to pyhton notebook, shared in BAAF Folder, where the entire training code is written from scratch. 
 
 ## Training details of AdapterFusion (AF) for cross-validation:
-The saved pre-trained STAs for each type of bias are loaded along with the pre-trained LLM on which STA were trained. Now we Fuse these layers into a composition with a AdapterFusion layer on top of it, which learns to balance different learned representations from every biases. The  training setup remains the same as described above. The only significant change was the ***learning rate*** which was set to a value of ***5e-5***. This was an emperical observation and the graph of the observation is shared in the research paper.
+The saved pre-trained STAs for each type of bias are loaded along with the pre-trained LLM on which STA were trained. Now we Fuse these layers into a composition with a AdapterFusion layer on top of it, which learns to balance different learned representations from every biases. The  training setup remains the same as described above. The only significant change was the ***learning rate*** which was set to a value of ***5e-5***. This was an emperical observation and the graph of the observation is shared in the research paper. The entire code is shared in BAAF folder for further clarification.
 
 # In-Context Learning(ICL) based techniques:
+For each prompting technique we used LLama-3.1 from Groq. The *temperature* was set to be 0 for all our experiments. All the other parameters were set to be default.
 ## Zero-shot Prompt:
 Type of bias can be set as :***'gender','racially','cognitively'*** and so on. Depending upon which bias is targeted.
 ```ruby
@@ -16,11 +17,11 @@ Classify the following text as {type of bias} biased or unbiased. Only give your
 ```
 ## Few-Shot Prompt:
 
-```
-Here are some examples of politically biased and unbiased text given below. The label for biased text is 1 and that of unbiased is 0:"
+```ruby
+Here are some examples of {type of bias} biased and unbiased text given below. The label for biased text is 1 and that of unbiased is 0:"
 
 text: {example statement 1}
-label:
+label: {example label 1}
 
 .... examples.....
 
