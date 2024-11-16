@@ -2,9 +2,14 @@
 The code and dataset for ECIR 2025 paper single-task training code are shared AdapterFusion cross-validation code shared.<br/>
 ![fusion](https://github.com/user-attachments/assets/8aa524da-ea31-4c19-98a2-6c399521f7c9)
 
-# Single-Task Adapters:
-These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be 10e-4. So we use a learning rate = 1.2*10e-4 .
-# Automatic Behaviour Optimization (ABO)
+## Training details of Single-Task Adapters (STA):
+These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be 10e-4. So we use a learning rate = 1.2*10e-4 . We used a total 6 epochs for the training process. The model checkpoint with lowest validation loss was used for infference and saved for AdapterFusion formation. Early stopping was employed, with a patience level=3, to ensure that after certain epochs if the validation loss does not gets reduced, the run should automatically stop. This helps to prevent further use of valuable resources. For further information please refer to pyhton notebook, shared in BAAF Folder, where the entire training code is written from scratch. 
+
+## Training details of AdapterFusion (AF):
+
+
+# In-Context Learning(ICL) based techniques:
+## Automatic Behaviour Optimization (ABO)
 Automatic Behaviour Optimization aims to optimize model's behaviour instead of optimizing the prompts directly. ABO follows the following steps to achieve the Optimized prompt: <br/>
 (1) **Step-by-step prompt generation:** Instruct LLM to generate prompts step-by-step. <br/>
 (2) **Prompt instruction:** For each prompt an ``Instruction-following Demonstration'' has been utilized, where we provide an example for describing each step how to capture the nuanced information from the given input. <br/>
