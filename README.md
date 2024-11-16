@@ -10,7 +10,9 @@ The saved pre-trained STAs for each type of bias are loaded along with the pre-t
 
 # In-Context Learning(ICL) based techniques:
 ## Zero-shot Prompt:
-
+```blue
+Classify the following text as gender biased or unbiased. Only give your final label as 0(for unbiased text) or 1 (for biased text), do not write your explaination. Here is the text:{input}
+```
 ## Few-Shot Prompt:
 
 ## Automatic Behaviour Optimization (ABO)
