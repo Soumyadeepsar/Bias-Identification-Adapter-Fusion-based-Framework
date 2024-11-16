@@ -1,5 +1,5 @@
 # Bias-Aware AdapterFusion (BAAF) Framework 
-The code and dataset for ECIR 2025 paper single-task training code are shared AdapterFusion cross-validation code shared.<br/>
+The Entire training setup and ICL techniques used in our paper is discussed here:<br/>
 ![fusion](https://github.com/user-attachments/assets/8aa524da-ea31-4c19-98a2-6c399521f7c9)
 
 ## Training details of Single-Task Adapters (STA):
@@ -10,11 +10,26 @@ The saved pre-trained STAs for each type of bias are loaded along with the pre-t
 
 # In-Context Learning(ICL) based techniques:
 ## Zero-shot Prompt:
-```blue
-Classify the following text as gender biased or unbiased. Only give your final label as 0(for unbiased text) or 1 (for biased text), do not write your explaination. Here is the text:{input}
+Type of bias can be set as :***'gender','racially','cognitively'*** and so on. Depending upon which bias is targeted.
+```ruby
+Classify the following text as {type of bias} biased or unbiased. Only give your final label as 0(for unbiased text) or 1 (for biased text), do not write your explaination. Here is the text:{input}
 ```
 ## Few-Shot Prompt:
 
+```
+Here are some examples of politically biased and unbiased text given below. The label for biased text is 1 and that of unbiased is 0:"
+
+text: {example statement 1}
+label:
+
+.... examples.....
+
+Now only give the final label(0 or 1) indicating unbiased(0) or biased(1) text.
+
+text: {input}
+
+label:
+```
 ## Automatic Behaviour Optimization (ABO)
 Automatic Behaviour Optimization aims to optimize model's behaviour instead of optimizing the prompts directly. ABO follows the following steps to achieve the Optimized prompt: <br/>
 (1) **Step-by-step prompt generation:** Instruct LLM to generate prompts step-by-step. <br/>
