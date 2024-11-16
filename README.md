@@ -3,12 +3,16 @@ The code and dataset for ECIR 2025 paper single-task training code are shared Ad
 ![fusion](https://github.com/user-attachments/assets/8aa524da-ea31-4c19-98a2-6c399521f7c9)
 
 ## Training details of Single-Task Adapters (STA):
-These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be 10e-4. So we use a learning rate = 1.2*10e-4 . We used a total 6 epochs for the training process. The model checkpoint with lowest validation loss was used for infference and saved for AdapterFusion formation. Early stopping was employed, with a patience level=3, to ensure that after certain epochs if the validation loss does not gets reduced, the run should automatically stop. This helps to prevent further use of valuable resources. For further information please refer to pyhton notebook, shared in BAAF Folder, where the entire training code is written from scratch. 
+These are adapter layers used to specifically train on single type of bias at a time. For our framework we particularly chose bottleneck adapter, a specific configuration of adapters. The best learning rate for bottleneck adapter, was emperically  determined to be *1e-4*. So we use a ***learning rate = 1.2e-4*** . We used a total 6 epochs for the training process. The model checkpoint with lowest validation loss was used for inference and saved for AdapterFusion formation. Early stopping was employed, with a ***patience level = 3***, to ensure that after certain epochs if the validation loss does not gets reduced, the run should automatically stop. This helps to prevent further use of valuable resources. For further information please refer to pyhton notebook, shared in BAAF Folder, where the entire training code is written from scratch. 
 
-## Training details of AdapterFusion (AF):
-
+## Training details of AdapterFusion (AF) for cross-validation:
+The saved pre-trained STAs for each type of bias are loaded along with the pre-trained LLM on which STA were trained. Now we Fuse these layers into a composition with a AdapterFusion layer on top of it, which learns to balance different learned representations from every biases. The  training setup remains the same as described above. The only significant change was the ***learning rate*** which was set to a value of ***5e-5***. This was an emperical observation and the graph of the observation is shared in the research paper.
 
 # In-Context Learning(ICL) based techniques:
+## Zero-shot Prompt:
+
+## Few-Shot Prompt:
+
 ## Automatic Behaviour Optimization (ABO)
 Automatic Behaviour Optimization aims to optimize model's behaviour instead of optimizing the prompts directly. ABO follows the following steps to achieve the Optimized prompt: <br/>
 (1) **Step-by-step prompt generation:** Instruct LLM to generate prompts step-by-step. <br/>
