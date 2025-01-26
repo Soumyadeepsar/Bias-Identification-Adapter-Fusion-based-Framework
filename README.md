@@ -9,7 +9,7 @@ Parameter-Efficient and Modular Transfer Learning***](https://arxiv.org/pdf/2311
 ## Training details of AdapterFusion (AF) for cross-validation:
 The saved pre-trained STAs for each type of bias are loaded along with the pre-trained LLM on which STA were trained. Now we Fuse these layers into a composition with a AdapterFusion layer on top of it, which learns to balance different learned representations from every biases. The  training setup remains the same as described above. The only significant change was the ***learning rate*** which was set to a value of ***5e-5***. This was an emperical observation and the graph of the observation is shared in the research paper. The entire code is shared in BAAF folder for further clarification.
 
-# In-Context Learning(ICL) based techniques:
+# In-Context Learning (ICL) based techniques:
 For each prompting technique we used LLama-3.1 from Groq. The *temperature* was set to be 0 for all our experiments. All the other parameters were set to be default.
 ## Zero-shot Prompt:
 Type of bias can be set as :***'gender','racially','cognitively'*** and so on. Depending upon which bias is targeted.
